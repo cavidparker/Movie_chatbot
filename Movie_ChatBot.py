@@ -75,7 +75,7 @@ for answer in clean_answers:
         else:
             word2count[word] +=1
 
-
+# creating two dictionaries that map the questions words and the answers words to a unique integer
 threshold = 20
 questionswords2int = {}
 word_number = 0
@@ -90,7 +90,12 @@ for word, count in word2count.items():
         answersword2int[word] = word_number
         word_number +=1
 
-
+# Adding the last tokens to these two dictionaries
+tokens = ['<PAD>', '<EOS>', '<OUT>', '<SOS>']
+for token in tokens:
+    questionswords2int[token] = len(questionswords2int) + 1
+for token in tokens:
+    questionswords2int[token] = len(answersword2int) + 1    
 
 
 
