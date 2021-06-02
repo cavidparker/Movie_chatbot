@@ -76,7 +76,19 @@ for answer in clean_answers:
             word2count[word] +=1
 
 
-
+threshold = 20
+questionswords2int = {}
+word_number = 0
+for word, count in word2count.items():
+    if count >= threshold:
+        questionswords2int[word] = word_number
+        word_number +=1
+answersword2int = {}
+word_number = 0
+for word, count in word2count.items():
+    if count >= threshold:
+        answersword2int[word] = word_number
+        word_number +=1
 
 
 
